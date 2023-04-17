@@ -30,7 +30,13 @@ export function MainLayout({ children, title = 'Next course' }) {
       </main>
       <footer>
         <div>Контакты</div>
-        <div>Мы в социальных сетях</div>
+        <div className='network'>
+          <div>Мы в социальных сетях</div>
+          <div className='links'>
+            <div className="vk"></div>
+            <div className="inst"></div>
+          </div>
+        </div>
       </footer>
     </>
   )

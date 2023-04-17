@@ -66,8 +66,8 @@ nav .links {
   align-items: center;
   justify-content: center;
   transition: 0.5s;
-
   font-size: 19px;
+  cursor: pointer;
 }
 
 .links .img {
@@ -80,7 +80,8 @@ nav .links {
   transition: 0.5s;
 }
 
-nav .links:hover {
+nav .links:hover,
+nav .logo:hover {
   color:#cbc276;
 }
 
@@ -89,16 +90,49 @@ nav .links:hover {
   background-size: 60px 40px;
 }
 
+nav .logo {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
 /* footer */
 footer {
   flex: 0 0 auto;
-  height: 100px;
+  height: 120px;
   background-color: #38424c;
   color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+
+.network {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px
+}
+
+.networl .links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px
+}
+
+.network .vk {
+  width: 25px;
+  height: 25px;
+  background: url('../public/pictures/footer/vk.png') no-repeat;
+}
+
+.network .inst {
+  width: 25px;
+  height: 25px;
+  background: url('../public/pictures/footer/inst.png') no-repeat;
 }
 
 /* main page style */
@@ -130,13 +164,17 @@ footer {
 
   .main-form {
     position:absolute;
-    top: 75%;
+    top: 70%;
     left: 15%;
     width: 1060px;
     height: 120px;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 10px;
     padding: 1em;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 
   .main-form form {
@@ -153,6 +191,13 @@ footer {
     font-size: 16px;
     border: 1.5px solid #cbc276;
     border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .main-form input:focus,
+  .main-form select:focus {
+    outline: none;
+    border: 2.5px solid #cbc276;
   }
 
   .forth, .back {
@@ -162,6 +207,7 @@ footer {
     opacity: 0.6;
     cursor: pointer;
     transition: 0.5s;
+    z-index: 2;
   }
   
   .forth {
@@ -316,9 +362,33 @@ footer {
   margin-top: 50px;;
 }
 
-.galery-img img {
-    width: 60vw;
-    height: 80vh;
+.max-img img {
+    width: 50vw;
+    height: 60vh;
     object-fit: cover;
     object-position: center;
 }
+
+.min-img {
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.min-img div {
+  transition: 0.3s;
+  opacity: 0.7;
+}
+
+.min-img div:hover {
+  opacity: 1;
+}
+
+.min-img img {
+  width: 60px;
+  height: 70px;
+}
+

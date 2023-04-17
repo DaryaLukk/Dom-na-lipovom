@@ -30,7 +30,7 @@ export default function Home({ imgs, cottages }) {
             <h1>Аренда гостевых домов</h1>
             <form>
               <input placeholder="Введите имя"></input>
-              <inpu placeholder="Введите номер"></inpu>
+              <input placeholder="Введите номер"></input>
               <input placeholder="Желаемая дата"></input>
               <select>
                 <option>Выберите дом</option>

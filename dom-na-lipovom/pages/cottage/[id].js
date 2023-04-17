@@ -9,18 +9,22 @@ export default function Post({ cottage }) {
   const [page, setPage] = useState(0)
 
   const forth = () => {
-    if (page < 11) {
+    if (page < cottage.imgs.length - 1) {
       setPage((prev) => prev + 1)
     }
-    else setPage(1)
+    else setPage(0)
   }
 
   const back = () => {
-    if (page <= 1) {
-      setPage(11)
+    if (page <= 0) {
+      setPage(cottage.imgs.length - 1)
     } else {
       setPage((prev => prev - 1))
     }
+  }
+
+  const choosePage = (i) => {
+    setPage(i)
   }
 
   return (
@@ -77,12 +81,17 @@ export default function Post({ cottage }) {
           <div className='galery-img'>
             <div onClick={forth} className='forth'></div>
             <div onClick={back} className='back'></div>
-            <div className="slider">
+            <div className="slider max-img">
               {cottage.imgs.map((img, i) =>
                 i == page &&
                 <img src={`.${img}`} alt='' />
               )}
             </div>
+          </div>
+          <div className='min-img'>
+            {cottage.imgs.map((img, i) =>
+              <div onClick={() => choosePage(i)}><img src={`.${img}`} alt='' /></div>
+            )}
           </div>
           <div className='links'>
             <button className='form'>Оставить заявку</button>

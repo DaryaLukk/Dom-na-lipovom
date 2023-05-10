@@ -1,5 +1,5 @@
 import { MainLayout } from "@/components/MainLayout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Cottages from "../components/Cottages";
 
 export default function Home({ imgs, cottages }) {
@@ -20,6 +20,13 @@ export default function Home({ imgs, cottages }) {
     }
   }
 
+  useEffect(() => {
+    const id = setTimeout(forth, 5000)
+    return () => {
+      clearTimeout(id)
+    }
+  }, [page])
+
   return (
     <MainLayout>
       <div className="main-container">
@@ -30,7 +37,7 @@ export default function Home({ imgs, cottages }) {
             <h1>Аренда гостевых домов</h1>
             <form>
               <input placeholder="Введите имя"></input>
-              <input placeholder="Введите номер"></input>
+              <input placeholder="Номер телефона"></input>
               <input placeholder="Желаемая дата"></input>
               <select>
                 <option>Выберите дом</option>
@@ -40,13 +47,13 @@ export default function Home({ imgs, cottages }) {
                 <option>Дом Прованс</option>
                 <option>Дом Красный</option>
               </select>
-              <button>Оставить заявку</button>
+              <button className="form">Оставить заявку</button>
             </form>
           </div>
           <div className="slider">
-            {imgs.map((img) =>
+            {imgs.map((img, i) =>
               img.id == page &&
-              (<img src={img.img} alt='' />)
+              (<img src={img.img} alt='' key={i} />)
             )}
           </div>
         </div>

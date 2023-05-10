@@ -30,15 +30,16 @@ export default function Post({ cottage }) {
   return (
     <MainLayout>
       <>
+        <div className="block"></div>
         <div className='cottage one'>
           {cottage.imgs.map((img, i) =>
-            i === 0 && <div><img src={`.${img}`} /></div>
+            i === 0 && <div key={i}><img src={`.${img}`} /></div>
           )}
           <div className='about'>
             <h2>Дом {cottage.name}</h2>
             <ul className="desc">
-              {cottage.description.map((desc) =>
-                <li>{desc}</li>
+              {cottage.description.map((desc, i) =>
+                <li key={i}>{desc}</li>
               )}
             </ul>
             <div className='info'>
@@ -58,7 +59,7 @@ export default function Post({ cottage }) {
             <div className='price'>
               <div><b>Прайс:</b></div>
               {cottage.price.map((price, i) =>
-                i !== 0 && <div>{price}</div>
+                i !== 0 && <div key={i}>{price}</div>
               )}
             </div>
             <div className='check'>
@@ -67,8 +68,8 @@ export default function Post({ cottage }) {
             </div>
             <div className="add">
               <div><b>Дополнительная информация:</b></div>
-              {cottage.add.map((add) =>
-                <div>{add}</div>
+              {cottage.add.map((add, i) =>
+                <div key={i}>{add}</div>
               )}
             </div>
             <div className='address'>
@@ -84,17 +85,18 @@ export default function Post({ cottage }) {
             <div className="slider max-img">
               {cottage.imgs.map((img, i) =>
                 i == page &&
-                <img src={`.${img}`} alt='' />
+                <img src={`.${img}`} alt='' key={i} />
               )}
             </div>
           </div>
           <div className='min-img'>
             {cottage.imgs.map((img, i) =>
-              <div onClick={() => choosePage(i)}><img src={`.${img}`} alt='' /></div>
+              <div key={i} onClick={() => choosePage(i)}><img src={`.${img}`} alt='' /></div>
             )}
           </div>
           <div className='links'>
-            <button className='form'>Оставить заявку</button>
+            <Link href='/submit_form'><button className='form'>Оставить заявку</button></Link>
+            <Link href='/'><button className='home'>Вернуться на главную</button></Link>
           </div>
         </div>
       </>

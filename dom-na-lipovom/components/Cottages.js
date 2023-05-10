@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Cottages({ cottages }) {
 
@@ -10,12 +10,12 @@ export default function Cottages({ cottages }) {
           <div className='stripe'></div>
           <div className='cottage'>
             {cottage.imgs.map((img, i) =>
-              i === 0 && <div className='img'><img src={img} /></div>
+              i === 0 && <div className='img' key={i}><img src={img} /></div>
             )}
             <div className='about'>
               <h2>Дом {cottage.name}</h2>
               {cottage.description.map((desc, i) =>
-                i === 0 && <div className='desc'>{desc}</div>
+                i === 0 && <div className='desc' key={i}>{desc}</div>
               )}
               <div className='info'>
                 <div className='sq'>
@@ -35,10 +35,10 @@ export default function Cottages({ cottages }) {
                 <div>Адрес: {cottage.address}</div>
               </div>
               {cottage.price.map((price, i) =>
-                i === 0 && <div className='price'>Цена от {price}</div>
+                i === 0 && <div className='price' key={i}>Цена от {price}</div>
               )}
               <div className='links'>
-                <button className='form'>Оставить заявку</button>
+                <Link href='/submit_form'><button className='form'>Оставить заявку</button></Link>
                 <Link className='next-link' href={`/cottage/[id]`} as={`/cottage/${cottage.id}`}><button className='cottage'>Подробнее о доме</button></Link>
               </div>
             </div>

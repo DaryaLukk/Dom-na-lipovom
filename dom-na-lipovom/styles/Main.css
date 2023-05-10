@@ -91,6 +91,8 @@ nav .logo:hover {
 }
 
 nav .logo {
+  text-decoration: none;
+  color: white;
   transition: 0.5s;
   cursor: pointer;
 }
@@ -115,24 +117,23 @@ footer {
   gap: 20px
 }
 
-.networl .links {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px
-}
-
+.network .inst,
 .network .vk {
   width: 25px;
   height: 25px;
+  transition: 0.5s;
+}
+.network .vk {
   background: url('../public/pictures/footer/vk.png') no-repeat;
 }
 
 .network .inst {
-  width: 25px;
-  height: 25px;
   background: url('../public/pictures/footer/inst.png') no-repeat;
+}
+
+.network .vk:hover,
+.network .inst:hover {
+  scale: 1.1;
 }
 
 /* main page style */
@@ -160,44 +161,6 @@ footer {
     object-fit: cover;
     object-position: center;
     /* animation: 0.7s show ease; */
-  }
-
-  .main-form {
-    position:absolute;
-    top: 70%;
-    left: 15%;
-    width: 1060px;
-    height: 120px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 10px;
-    padding: 1em;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .main-form form {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .main-form input,
-  .main-form select {
-    padding: 0.7em;
-    font-size: 16px;
-    border: 1.5px solid #cbc276;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .main-form input:focus,
-  .main-form select:focus {
-    outline: none;
-    border: 2.5px solid #cbc276;
   }
 
   .forth, .back {
@@ -322,9 +285,9 @@ footer {
 }
 
 
-.links .form,
-.links .cottage,
-.main-form button {
+.form,
+.links .home,
+.links .cottage {
   text-decoration: none;
   width: 220px;
   height: 50px;
@@ -333,11 +296,21 @@ footer {
   border: 0;
   color: white;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.form:hover,
+.links .home:hover,
+.links .cottage:hover {
+  background-color: rgb(221, 214, 154)
 }
 
 /* cottage */
+.block {
+  height: 150px;
+}
+
 .one {
-  margin-top: 150px;
   align-items: start;
 }
 
@@ -390,5 +363,136 @@ footer {
 .min-img img {
   width: 60px;
   height: 70px;
+}
+
+/* form */
+.main-form,
+.cottage-form {
+  width: 1060px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+.main-form h1,
+.cottage-form h1 {
+  margin-left: 50px;
+}
+
+.main-form {
+  position:absolute;
+  top: 70%;
+  left: 15%;
+  z-index: 2;
+  height: 120px;
+}
+
+.cottage-form {
+  width: 1160px;
+  height: 220px;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+input,
+select {
+  padding: 0.7em;
+  font-size: 16px;
+  border: 1.5px solid #cbc276;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border: 2.5px solid #cbc276;
+}
+
+.container-form {
+  width: 100vw;
+  height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background: url('../public/pictures/carousel4.jpeg') no-repeat;
+ background-size: cover;
+ background-position: center;
+}
+
+/* menu */
+.menu {
+ position: fixed;
+ z-index: 3;
+ width: 770px;
+ height: 100vh;
+ background-color: rgba(163, 156, 94, 0.9);
+ transition: 1.5s;
+ display: flex;
+ justify-content: center;
+ align-items: flex-start;
+ padding: 1em;;
+}
+
+.hid {
+  left: -970px;
+}
+
+.vis {
+  left: 0px;
+}
+
+.menu .content {
+  width: 570px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.content .logo {
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo .close {
+  width: 25px;
+  height: 25px;
+  background: url('../public/pictures/menu/close.png');
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.logo .close:hover {
+  scale: 1.1;
+}
+
+.content .stripe {
+  height: 1px;
+  width: 270px;
+  background-color: white;
+  margin-bottom: 50px;
+}
+
+.content a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  transition: 0.5s;
+}
+
+.content a:hover {
+  color: white;
 }
 

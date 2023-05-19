@@ -44,7 +44,7 @@ nav .contacts {
   cursor: pointer;
 }
 
-.contacts:hover {
+nav .contacts:hover {
   color: #cbc276;
 }
 
@@ -100,13 +100,32 @@ nav .logo {
 /* footer */
 footer {
   flex: 0 0 auto;
-  height: 120px;
+  min-height: 120px;
   background-color: #38424c;
   color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  padding: 1em;
+}
+
+footer .contacts {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.contacts .data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.contacts .map {
+  /* width: 320px;
+  height: 320px; */
 }
 
 .network {
@@ -114,7 +133,7 @@ footer {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 20px
+  gap: 20px;
 }
 
 .network .inst,

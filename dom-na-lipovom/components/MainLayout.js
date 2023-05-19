@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import '../styles/Nav.module.css'
+import { YMaps, Map, Placemark, FullscreenControl, ZoomControl } from '@pbe/react-yandex-maps';
 import { useState } from "react";
 
 export function MainLayout({ children, title = 'Next course' }) {
@@ -46,7 +47,22 @@ export function MainLayout({ children, title = 'Next course' }) {
         {children}
       </main>
       <footer>
-        <div>Контакты</div>
+        <div className="contacts">
+          <div className="data">
+            <div>Контакты:</div>
+            <div>Тюмень, улица Николая Егорова 19</div>
+            <div>8 (999) 548-98-88</div>
+          </div>
+          <div className='map'>
+            <YMaps>
+              <Map defaultState={{ center: [57.230119, 65.593868], zoom: 17 }} width={'420px'} height={'280px'}>
+                <Placemark geometry={[57.230119, 65.593868]} />
+                <FullscreenControl options={{ float: 'left' }} />
+                <ZoomControl options={{ float: 'left' }} />
+              </Map>
+            </YMaps>
+          </div>
+        </div>
         <div className='network'>
           <div>Мы в социальных сетях</div>
           <div className='links'>

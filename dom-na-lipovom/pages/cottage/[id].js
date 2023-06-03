@@ -1,4 +1,5 @@
 import { MainLayout } from "@/components/MainLayout"
+import cottageStore from "@/components/store/cottageStore"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
@@ -105,8 +106,7 @@ export default function Post({ cottage }) {
 }
 
 Post.getInitialProps = async (ctx) => {
-  const res = await fetch(`http://localhost:4200/cottages/${ctx.query.id}`)
-  const cottage = await res.json()
+  const cottage = cottageStore.cottages.find((cottage) => cottage.id == ctx.query.id)
 
   return {
     cottage

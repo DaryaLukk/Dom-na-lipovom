@@ -12,6 +12,15 @@
   to { opacity: 1; }
 }
 
+@keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  }  
+
 .next-link{
   text-decoration: none;
 }
@@ -387,8 +396,9 @@ footer .contacts {
 /* form */
 .main-form,
 .cottage-form {
-  width: 1060px;
   background-color: rgba(255, 255, 255, 0.75);
+  width: 80%;
+  height: 20%;
   border-radius: 10px;
   padding: 1em;
   display: flex;
@@ -397,22 +407,12 @@ footer .contacts {
   gap: 15px;
 }
 
-.main-form h1,
-.cottage-form h1 {
-  margin-left: 50px;
-}
-
 .main-form {
   position:absolute;
   top: 70%;
-  left: 15%;
+  left: 10%;
+  right: 10%;
   z-index: 2;
-  height: 120px;
-}
-
-.cottage-form {
-  width: 1160px;
-  height: 220px;
 }
 
 form {
@@ -430,6 +430,7 @@ select {
   border: 1.5px solid #cbc276;
   border-radius: 5px;
   cursor: pointer;
+  width: 20%;
 }
 
 input:focus,
@@ -448,6 +449,65 @@ select:focus {
  background-size: cover;
  background-position: center;
 }
+
+.error_visible {
+  color: red;
+  font-weight: bold;
+}
+
+.error_hidden {
+  visibility: hidden;
+}
+
+/* status*/
+.container_status {
+  position: absolute;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.status {
+  position: absolute;
+  z-index: 3;
+  width: 500px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  left: 30%;
+  top: 30%;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2em;
+  font-size: 20px;
+}
+
+.status div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.status a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+.wait {
+  width: 48px;
+  height: 48px;
+  border: 5px solid rgba(163, 156, 94);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
 
 /* menu */
 .menu {
@@ -514,4 +574,3 @@ select:focus {
 .content a:hover {
   color: white;
 }
-

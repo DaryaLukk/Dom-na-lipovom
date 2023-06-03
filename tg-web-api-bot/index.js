@@ -23,8 +23,8 @@ app.post('/', async (req, res) => {
         await bot.stopPolling();
         return res.status(200).json({status: true})
     }
-    catch ({message}) {
-        return res.status(500).json(message)
+    catch (e) {
+        return res.status(500).json({status: false})
     } 
 })
 

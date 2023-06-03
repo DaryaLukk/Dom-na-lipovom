@@ -1,8 +1,9 @@
 import { MainLayout } from "@/components/MainLayout";
 import { useEffect, useState } from "react";
 import Cottages from "../components/Cottages";
+import cottageStore from "@/components/store/cottageStore";
 
-export default function Home({ imgs, cottages }) {
+ const Home = () => {
   const [page, setPage] = useState(1)
 
   const forth = () => {
@@ -51,7 +52,7 @@ export default function Home({ imgs, cottages }) {
             </form>
           </div>
           <div className="slider">
-            {imgs.map((img, i) =>
+            {cottageStore.mainImgs.map((img, i) =>
               img.id == page &&
               (<img src={img.img} alt='' key={i} />)
             )}
@@ -59,22 +60,11 @@ export default function Home({ imgs, cottages }) {
         </div>
         <div className="cottages-container">
           <h1>Наши дома</h1>
-          <Cottages cottages={cottages} />
+          <Cottages/>
         </div>
       </div>
     </MainLayout>
   )
-}
+};
 
-Home.getInitialProps = async () => {
-  const res = await fetch('http://localhost:4200/main-imgs')
-  const imgs = await res.json()
-
-  const res1 = await fetch('http://localhost:4200/cottages')
-  const cottages = await res1.json()
-
-  return {
-    imgs, cottages
-  }
-}
-
+export default Home;

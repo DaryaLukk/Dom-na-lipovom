@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
+import cottageStore from './store/cottageStore'
 
-export default function Cottages({ cottages }) {
+const Cottages = () => {
 
   return (
     <div className='cottages'>
-      {cottages.map((cottage) =>
+      {cottageStore.cottages.map((cottage) =>
         <>
           <div className='stripe'></div>
           <div className='cottage'>
@@ -47,13 +48,6 @@ export default function Cottages({ cottages }) {
       )}
     </div>
   )
-}
+};
 
-Cottages.getInitialProps = async () => {
-  const res = await fetch('http://localhost:4200/cottages')
-  const cottages = await res.json()
-
-  return {
-    cottages
-  }
-}
+export default Cottages;

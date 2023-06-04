@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import Cottages from "../components/Cottages";
 import cottageStore from "@/components/store/cottageStore";
 
- const Home = () => {
+const Home = () => {
   const [page, setPage] = useState(1)
+  const [error, setError] = useState(false)
 
   const forth = () => {
     if (page < 3) {
@@ -50,6 +51,7 @@ import cottageStore from "@/components/store/cottageStore";
               </select>
               <button className="form">Оставить заявку</button>
             </form>
+            <div className={error ? 'error_visible' : 'error_hidden'}>Заполните все поля!</div>
           </div>
           <div className="slider">
             {cottageStore.mainImgs.map((img, i) =>
@@ -60,7 +62,7 @@ import cottageStore from "@/components/store/cottageStore";
         </div>
         <div className="cottages-container">
           <h1>Наши дома</h1>
-          <Cottages/>
+          <Cottages />
         </div>
       </div>
     </MainLayout>

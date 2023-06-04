@@ -18,13 +18,13 @@ export function MainLayout({ children, title = 'Next course' }) {
       <nav>
         {/* <Link legacyBehavior href={'/'}><a>Меню</a></Link> */}
         <div className="links" onClick={() => setMenu(true)}>
-          <div>меню</div>
+          <div className="text">меню</div>
           <div className='img'></div>
         </div>
         <Link href='/' legacyBehavior><a className='logo'>Дом на Липовом</a></Link>
         <div className='contacts'>
           <div className='img'></div>
-          <div>{`8 (999) 548-98-88`}</div>
+          <div className='phone'>{`8 (999) 548-98-88`}</div>
         </div>
         {/* <Link legacyBehavior href={'/about'}><a>About</a></Link>
         <Link legacyBehavior href={'/posts'}><a>Posts</a></Link> */}
@@ -47,21 +47,19 @@ export function MainLayout({ children, title = 'Next course' }) {
         {children}
       </main>
       <footer>
-        <div className="contacts">
-          <div className="data">
-            <div>Контакты:</div>
-            <div>Тюмень, улица Николая Егорова 19</div>
-            <div>8 (999) 548-98-88</div>
-          </div>
-          <div className='map'>
-            <YMaps>
-              <Map defaultState={{ center: [57.230119, 65.593868], zoom: 17 }} width={'420px'} height={'280px'}>
-                <Placemark geometry={[57.230119, 65.593868]} />
-                <FullscreenControl options={{ float: 'left' }} />
-                <ZoomControl options={{ float: 'left' }} />
-              </Map>
-            </YMaps>
-          </div>
+        <div className="data">
+          <div>Контакты:</div>
+          <div>Тюмень, улица Николая Егорова 19</div>
+          <div>8 (999) 548-98-88</div>
+        </div>
+        <div className='map'>
+          <YMaps>
+            <Map defaultState={{ center: [57.230119, 65.593868], zoom: 17 }} width={'420px'} height={'280px'}>
+              <Placemark geometry={[57.230119, 65.593868]} />
+              <FullscreenControl options={{ float: 'left' }} />
+              <ZoomControl options={{ float: 'left' }} />
+            </Map>
+          </YMaps>
         </div>
         <div className='network'>
           <div>Мы в социальных сетях</div>

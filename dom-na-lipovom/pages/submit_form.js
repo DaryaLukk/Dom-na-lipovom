@@ -15,7 +15,7 @@ export default function submit_form() {
     e.preventDefault()
     if (name && number && date && cottage !== '') {
       setModal(true)
-      const res =  await fetch('http://localhost:8000', {
+      const res = await fetch('http://localhost:8000', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -28,8 +28,8 @@ export default function submit_form() {
         })
       })
       const data = await res.json();
-      if(data.status) {
-      setStatus(true)
+      if (data.status) {
+        setStatus(true)
       }
     } else {
       setError(true)
@@ -40,7 +40,7 @@ export default function submit_form() {
     <div className='container-form'>
       <div className='cottage-form'>
         <h1>Аренда гостевых домов</h1>
-        <form onSubmit={submitForm}  action='/' method='POST'>
+        <form onSubmit={submitForm} action='/' method='POST'>
           <input placeholder="Введите имя" type='text' onChange={(e) => setName(e.target.value)}></input>
           <input placeholder="Номер телефона" type='text' onChange={(e) => setNumber(e.target.value)}></input>
           <input placeholder="Желаемая дата" type='date' onChange={(e) => setDate(e.target.value)}></input>
@@ -52,12 +52,10 @@ export default function submit_form() {
             <option>Дом Прованс</option>
             <option>Дом Красный</option>
           </select>
-          <div className='links'>
-            <button className="form" type='submit'>Оставить заявку</button>
-            <Link href='/'><button className='home'>Вернуться на главную</button></Link>
-          </div>
+          <button className="form" type='submit'>Оставить заявку</button>
+          <Link href='/' legacyBehavior><button className='home'>Вернуться на главную</button></Link>
         </form>
-        <div className={error? 'error_visible' : 'error_hidden'}>Заполните все поля!</div>
+        <div className={error ? 'error_visible' : 'error_hidden'}>Заполните все поля!</div>
       </div>
       {modal && <div className='container_status'>
         <div className='status'>
@@ -68,7 +66,7 @@ export default function submit_form() {
             {status && <div>Заявка отправлена!</div>}
           </div>
           {!status && <div className='wait'></div>}
-          {status && <Link href='/' legacyBehavior><a className='home'>вернуться на главную</a></Link>}   
+          {status && <Link href='/' legacyBehavior><a className='home'>вернуться на главную</a></Link>}
         </div>
       </div>}
     </div>

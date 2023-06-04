@@ -9,25 +9,25 @@ app.use(express.json());
 app.use(cors());
 
 app.post('/', async (req, res) => {
-    const {name, number, date, cottage} = req.body;
+    const { name, number, date, cottage } = req.body;
     try {
-        const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, {polling: true});
+        const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, { polling: true });
         await bot.sendMessage(
-            process.env.CHAT_ID, 
+            process.env.CHAT_ID,
             `Новая заявка: 
         Имя - ${name} 
         Телефон - ${number} 
         Желаемая дата - ${date} 
         Желаемый дом - ${cottage}`
-          );
+        );
         await bot.stopPolling();
-        return res.status(200).json({status: true})
+        return res.status(200).json({ status: true })
     }
     catch (e) {
-        return res.status(500).json({status: false})
-    } 
+        return res.status(500).json({ status: false })
+    }
 })
 
-  const PORT = process.env.PORT;
+const PORT = process.env.PORT;
 
-  app.listen(PORT, () => console.log('ПОРТ ПАШЕТ!'))
+app.listen(PORT, () => console.log('ПОРТ ПАШЕТ!'))

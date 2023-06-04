@@ -132,11 +132,6 @@ footer .contacts {
   gap: 10px;
 }
 
-.contacts .map {
-  /* width: 320px;
-  height: 320px; */
-}
-
 .network {
   display: flex;
   flex-direction: row;
@@ -188,7 +183,6 @@ footer .contacts {
     height: 100vh;
     object-fit: cover;
     object-position: center;
-    /* animation: 0.7s show ease; */
   }
 
   .forth, .back {
@@ -269,7 +263,7 @@ footer .contacts {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  width: 448px;
+  width: 100%;
   height: 70px;
   background-color: #f1f1e5;
   font-size: 20px;
@@ -312,8 +306,7 @@ footer .contacts {
   gap: 5px;
 }
 
-
-.form,
+.form, .home,
 .links .home,
 .links .cottage {
   text-decoration: none;
@@ -360,7 +353,7 @@ footer .contacts {
 /* gallery */
 .galery-container {
   gap: 50px;
-  margin-top: 50px;;
+  margin-top: 50px;
 }
 
 .max-img img {
@@ -397,14 +390,14 @@ footer .contacts {
 .main-form,
 .cottage-form {
   background-color: rgba(255, 255, 255, 0.75);
-  width: 80%;
-  height: 20%;
+  width: 80vw;
+  height: 20vh;
   border-radius: 10px;
   padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 15px;
+  gap: 5px;
 }
 
 .main-form {
@@ -426,7 +419,7 @@ form {
 input,
 select {
   padding: 0.7em;
-  font-size: 16px;
+  font-size: 14px;
   border: 1.5px solid #cbc276;
   border-radius: 5px;
   cursor: pointer;
@@ -440,8 +433,8 @@ select:focus {
 }
 
 .container-form {
-  width: 100vw;
-  height: 100vh;
+ width: 100vw;
+ height: 100vh;
  display: flex;
  justify-content: center;
  align-items: center;
@@ -453,10 +446,11 @@ select:focus {
 .error_visible {
   color: red;
   font-weight: bold;
+  font-size: 14px;
 }
 
 .error_hidden {
-  visibility: hidden;
+  display: none;
 }
 
 /* status*/
@@ -471,12 +465,13 @@ select:focus {
 .status {
   position: absolute;
   z-index: 3;
-  width: 500px;
-  height: 300px;
+  width: 50%;
+  height: 40%;
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 10px;
-  left: 30%;
-  top: 30%;
+  left: 23%;
+  right: 23%;
+  top: 20%;
   display: flex;
   justify-content:space-around;
   align-items: center;
@@ -573,4 +568,365 @@ select:focus {
 
 .content a:hover {
   color: white;
+}
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .cottage {
+    gap: 80px;
+  }
+
+  .cottage img {
+    width: 415px;
+    height: 415px;
+  }
+
+  input,
+  select {
+    font-size: 13px;
+  }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  .cottage {
+    gap: 60px;
+  }
+
+  .cottage img {
+    width: 315px;
+    height: 315px;
+  }
+
+  .cottage .about {
+    width: 350px;
+  }
+
+  .main-form {
+    display: none;
+  }
+
+  .form, .home,
+  .links .cottage {
+    width: 170px;
+  }
+
+  footer .data {
+    display: none;
+  }
+
+  .contacts .phone {
+    display: none;
+  }
+
+  .menu {
+    width: 570px;
+   }
+   
+   .hid {
+     left: -770px;
+   }
+
+   .max-img img {
+    width: 80vw;
+  }
+
+   .min-img {
+    width: 80vw;
+   }
+
+   .cottage-form {
+    width: 50vw;
+    height: 50vh;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .cottage-form h1 {
+    font-size: 20px;
+  }
+  
+  .cottage-form .form,
+  .cottage-form .home {
+    width: 85%;
+  }
+  
+  form {
+    flex-direction: column;
+  }
+
+  input, select {
+    width: 85%;
+  }
+
+  .status {
+    width: 60%;
+    left: 15%;
+    right: 15%;
+   }
+}
+
+/* Landscape phones and portrait tablets */
+@media (min-width: 481px) and (max-width: 767px) {
+  .cottages .stripe {
+    width: 400px;
+  }
+
+  .cottage {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cottage img {
+    width: 315px;
+    height: 315px;
+  }
+
+  .cottage .about {
+    width: 415px;
+  }
+
+  .map {
+    display: none;
+  }
+
+  .contacts .phone {
+    display: none;
+  }
+
+  .main-form {
+    display: none;
+  }
+
+  .min-img {
+    display: none;
+  }
+
+  .cottage-form {
+    width: 60vw;
+    height: 80vh;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .cottage-form h1 {
+    font-size: 20px;
+  }
+  
+  form {
+    flex-direction: column;
+  }
+
+  input, select {
+    width: 80%;
+  }
+
+  .cottage-form .form,
+  .cottage-form .home {
+    width: 80%;
+  }
+
+  .status {
+    width: 70%;
+    left: 8%;
+    right: 8%;
+   }
+
+  .menu {
+    width: 370px;
+  }
+   
+  .hid {
+    left: -570px;
+  }
+
+  .max-img img {
+    width: 80vw;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 480px) {
+  .cottages .stripe {
+    width: 300px;
+  }
+
+  .cottage {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cottage img {
+    width: 315px;
+    height: 315px;
+  }
+
+  .cottage .about {
+    width: 315px;
+  }
+
+  .map {
+    display: none;
+  }
+
+  .main-form {
+    display: none;
+  }
+
+  .min-img {
+    display: none;
+  }
+
+  .contacts .phone,
+  .contacts .img {
+    display: none;
+  }
+
+  .links .form,
+  .links .cottage,
+  .links .home {
+   width: 160px;
+  }
+
+  .cottage-form {
+    width: 60vw;
+    height: 65vh;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .cottage-form h1 {
+    font-size: 20px;
+  }
+  
+  .cottage-form .form,
+  .cottage-form .home {
+    width: 85%;
+  }
+  
+  form {
+    flex-direction: column;
+  }
+
+  input, select {
+    width: 85%;
+  }
+
+  .status {
+    width: 70%;
+    left: 5%;
+    right: 5%;
+   }
+
+  .menu {
+    width: 270px;
+  }
+   
+  .hid {
+    left: -370px;
+  }
+
+  .max-img img {
+    width: 80vw;
+  }
+
+  .network, .data {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 359px) {
+  .cottages .stripe {
+    width: 200px;
+  }
+
+  .cottage {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cottage img {
+    width: 245px;
+    height: 245px;
+  }
+
+  .cottage .about {
+    width: 245px;
+  }
+
+  .map {
+    display: none;
+  }
+
+  .main-form {
+    display: none;
+  }
+
+  .min-img {
+    display: none;
+  }
+
+  .contacts .phone,
+  .contacts .img {
+    display: none;
+  }
+
+  .links .form,
+  .links .cottage,
+  .links .home {
+   width: 120px;
+  }
+
+  .cottage-form {
+    width: 60vw;
+    height: 65vh;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .cottage-form h1 {
+    font-size: 20px;
+  }
+  
+  .cottage-form .form,
+  .cottage-form .home {
+    width: 85%;
+  }
+  
+  form {
+    flex-direction: column;
+  }
+
+  input, select {
+    width: 85%;
+  }
+
+  .status {
+    width: 60%;
+    left: 5%;
+    right: 5%;
+   }
+
+  .menu {
+    width: 250px;
+  }
+   
+  .hid {
+    left: -350px;
+  }
+
+  .max-img img {
+    width: 80vw;
+  }
+
+  .logo,
+  .links .text {
+    font-size: 16px;
+  }
+
+  .network, .data {
+    font-size: 14px;
+  }
 }

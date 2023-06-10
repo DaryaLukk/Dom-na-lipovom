@@ -13,7 +13,7 @@ export default function submit_form() {
 
   const submitForm = async (e) => {
     e.preventDefault()
-    if (name && number && date && cottage !== '') {
+    if (name && number && date && cottage !== '' && cottage !== 'Выберите дом') {
       setModal(true)
       const res = await fetch('http://localhost:8000', {
         method: 'POST',
@@ -66,7 +66,7 @@ export default function submit_form() {
             {status && <div>Заявка отправлена!</div>}
           </div>
           {!status && <div className='wait'></div>}
-          {status && <Link href='/' legacyBehavior><a className='home'>вернуться на главную</a></Link>}
+          {status && <Link href='/' legacyBehavior><a>вернуться на главную</a></Link>}
         </div>
       </div>}
     </div>

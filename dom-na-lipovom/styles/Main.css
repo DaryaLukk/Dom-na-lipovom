@@ -487,10 +487,12 @@ select:focus {
   gap: 5px;
 }
 
-.status a {
+.status a,
+.status .closeModal {
   text-decoration: none;
   color: black;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .wait {

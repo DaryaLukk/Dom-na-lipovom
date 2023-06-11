@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "serve": "npm run start && npm run mock"
+    "lint": "next lint"
   },
   "dependencies": {
     "@pbe/react-yandex-maps": "^1.2.4",

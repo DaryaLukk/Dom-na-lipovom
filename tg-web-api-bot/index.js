@@ -8,6 +8,14 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+if (proccess.env.NODE_ENV === 'production') {
+    app.use('/', express.static(path.join(_dirname, 'dom-na-lipovom', '.next')))
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.res(_dirname, 'dom-na-lipovom', '.next'))
+    })
+}
+
 app.post('/', async (req, res) => {
     const { name, number, date, cottage } = req.body;
     try {
@@ -24,7 +32,7 @@ app.post('/', async (req, res) => {
         return res.status(200).json({ status: true })
     }
     catch (e) {
-        return res.status(500).json({ status: false })
+        return res.status(500).json({ status: false, message: e })
     }
 })
 

@@ -6,7 +6,6 @@ import { useState } from "react"
 
 
 export default function Post({ cottage }) {
-  const router = useRouter()
   const [page, setPage] = useState(0)
 
   const forth = () => {

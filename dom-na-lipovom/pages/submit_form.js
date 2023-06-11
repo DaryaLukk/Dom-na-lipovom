@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-export default function submit_form() {
+export default function Submit_form() {
   const [name, setName] = useState('')
   const [number, setNumber] = useState('')
   const [date, setDate] = useState('')
@@ -13,27 +13,41 @@ export default function submit_form() {
 
   const submitForm = async (e) => {
     e.preventDefault()
-    if (name && number && date && cottage !== '' && cottage !== 'Выберите дом') {
-      setModal(true)
-      const res = await fetch('http://localhost:8000', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          number,
-          date,
-          cottage
+    try {
+      if (name && number && date && cottage !== '' && cottage !== 'Выберите дом') {
+        setModal(true)
+        const res = await fetch('http://localhost:8000', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            number,
+            date,
+            cottage
+          })
         })
-      })
-      const data = await res.json();
-      if (data.status) {
+        const data = await res.json();
+        reset();
         setStatus(true)
+      } else {
+        setError(true)
       }
-    } else {
-      setError(true)
     }
+    catch (e) {
+      setModal(false)
+      reset()
+      alert(`Произошла ошибка :( ${e}`)
+    }
+  }
+
+  const reset = () => {
+    setError(false);
+    setName('');
+    setNumber('');
+    setDate('');
+    setCottage('');
   }
 
   return (
@@ -41,10 +55,10 @@ export default function submit_form() {
       <div className='cottage-form'>
         <h1>Аренда гостевых домов</h1>
         <form onSubmit={submitForm} action='/' method='POST'>
-          <input placeholder="Введите имя" type='text' onChange={(e) => setName(e.target.value)}></input>
-          <input placeholder="Номер телефона" type='text' onChange={(e) => setNumber(e.target.value)}></input>
-          <input placeholder="Желаемая дата" type='date' onChange={(e) => setDate(e.target.value)}></input>
-          <select onChange={(e) => setCottage(e.target.value)}>
+          <input placeholder="Введите имя" value={name} type='text' onChange={(e) => setName(e.target.value)}></input>
+          <input placeholder="Номер телефона" value={number} type='text' onChange={(e) => setNumber(e.target.value)}></input>
+          <input placeholder="Желаемая дата" value={date} type='date' onChange={(e) => setDate(e.target.value)}></input>
+          <select value={cottage} onChange={(e) => setCottage(e.target.value)}>
             <option>Выберите дом</option>
             <option>Дом Светлый</option>
             <option>Дом Темный</option>

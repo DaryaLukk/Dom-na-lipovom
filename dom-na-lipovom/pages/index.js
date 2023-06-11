@@ -2,7 +2,6 @@ import { MainLayout } from "@/components/MainLayout";
 import { useEffect, useState } from "react";
 import Cottages from "../components/Cottages";
 import cottageStore from "@/components/store/cottageStore";
-import Link from "next/link";
 
 const Home = () => {
   const [page, setPage] = useState(1)
@@ -40,27 +39,31 @@ const Home = () => {
 
   const submitForm = async (e) => {
     e.preventDefault()
-    if (name && number && date && cottage !== '' && cottage !== 'Выберите дом') {
-      setModal(true)
-      const res = await fetch('http://localhost:8000', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          number,
-          date,
-          cottage
+    try {
+      if (name && number && date && cottage !== '' && cottage !== 'Выберите дом') {
+        setModal(true)
+        const res = await fetch('http://localhost:8000', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            number,
+            date,
+            cottage
+          })
         })
-      })
-      const data = await res.json();
-      if (data.status) {
-        reset();
-        setStatus(true);
+        const data = await res.json()
+        reset()
+        setStatus(true)
+      } else {
+        setError(true)
       }
-    } else {
-      setError(true);
+    } catch (e) {
+      setModal(false)
+      reset()
+      alert(`Произошла ошибка :( ${e}`)
     }
   }
 
@@ -81,10 +84,10 @@ const Home = () => {
           <div className='main-form'>
             <h1>Аренда гостевых домов</h1>
             <form onSubmit={submitForm} action='/' method='POST'>
-              <input placeholder="Введите имя" onChange={(e) => setName(e.target.value)}></input>
-              <input placeholder="Номер телефона" onChange={(e) => setNumber(e.target.value)}></input>
-              <input placeholder="Желаемая дата" type='date' onChange={(e) => setDate(e.target.value)}></input>
-              <select onChange={(e) => setCottage(e.target.value)}>
+              <input placeholder="Введите имя" value={name} onChange={(e) => setName(e.target.value)}></input>
+              <input placeholder="Номер телефона" value={number} onChange={(e) => setNumber(e.target.value)}></input>
+              <input placeholder="Желаемая дата" value={date} type='date' onChange={(e) => setDate(e.target.value)}></input>
+              <select value={cottage} onChange={(e) => setCottage(e.target.value)}>
                 <option>Выберите дом</option>
                 <option>Дом Светлый</option>
                 <option>Дом Темный</option>
@@ -97,21 +100,32 @@ const Home = () => {
             <div className={error ? 'error_visible' : 'error_hidden'}>Заполните все поля!</div>
           </div>
           {modal && <div className='container_status'>
-        <div className='status'>
-          <h2>Заявка</h2>
-          <div>
-            <div>{name} {number}</div>
-            <div>{cottage} {date}</div>
-            {status && <div>Заявка отправлена!</div>}
-          </div>
-          {!status && <div className='wait'></div>}
-          {status && <div className='closeModal' onClick={() => setModal(false)}>закрыть</div>}
-        </div>
-      </div>}
+            <div className='status'>
+              <h2>Заявка</h2>
+              <div>
+                <div>{name} {number}</div>
+                <div>{cottage} {date}</div>
+                {status && <div>Заявка отправлена!</div>}
+              </div>
+              {!status && <div className='wait'></div>}
+              {status && <div className='closeModal' onClick={() => setModal(false)}>закрыть</div>}
+            </div>
+          </div>}
           <div className="slider">
             {cottageStore.mainImgs.map((img, i) =>
               img.id == page &&
               (<img src={img.img} alt='' key={i} />)
+            )}
+          </div>
+        </div>
+        <div className="odds-container">
+          <h1>Наши преимущества</h1>
+          <div className='odds'>
+            {cottageStore.about.map((el, i) =>
+              <div className="odd" key={i}>
+                <img src={el.img} alt=''></img>
+                <div>{el.desc}</div>
+              </div>
             )}
           </div>
         </div>

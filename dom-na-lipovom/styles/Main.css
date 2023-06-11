@@ -57,6 +57,16 @@ nav .contacts:hover {
   color: #cbc276;
 }
 
+.contacts .phone {
+  text-decoration: none;
+  color: white;
+  transition: 0.5s;
+}
+
+.contacts .phone:hover {
+  color: #cbc276;
+}
+
 .contacts .img {
   width: 24px;
   height: 24px;
@@ -210,6 +220,31 @@ footer .contacts {
     scale: 1.1;
   }
 
+/* odds */
+.odds {
+  width: 1065px;
+  background-color: rgb(241,241,229);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 100px;
+  padding: 2em;
+}
+
+.odd {
+  width: 200px;
+  color: rgb(56,66,76);
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
 /* cottages */
 .cottages {
   display: flex;
@@ -226,7 +261,8 @@ footer .contacts {
   opacity: 0.8;
 }
 
-.cottages-container h1 {
+.cottages-container h1,
+.odds-container h1 {
   text-align: center;
   margin-bottom: 50px;
 }
@@ -587,6 +623,15 @@ select:focus {
   select {
     font-size: 13px;
   }
+
+  .odds {
+    width: 865px;
+    gap: 100px;
+  }
+  
+  .odd {
+    width: 150px;
+  }
 }
 
 /* Portrait tablets and small desktops */
@@ -666,6 +711,15 @@ select:focus {
     left: 15%;
     right: 15%;
    }
+
+   .odds {
+    width: 665px;
+    gap: 50px;
+  }
+  
+  .odd {
+    width: 150px;
+  }
 }
 
 /* Landscape phones and portrait tablets */
@@ -745,6 +799,15 @@ select:focus {
 
   .max-img img {
     width: 80vw;
+  }
+
+  .odds {
+    width: 365px;
+    gap: 50px;
+  }
+  
+  .odd {
+    width: 100px;
   }
 }
 
@@ -835,6 +898,15 @@ select:focus {
 
   .network, .data {
     font-size: 14px;
+  }
+
+  .odds {
+    width: 265px;
+    gap: 20px;
+  }
+  
+  .odd {
+    width: 100px;
   }
 }
 
@@ -930,5 +1002,9 @@ select:focus {
 
   .network, .data {
     font-size: 14px;
+  }
+
+  .odds-container {
+    display: none;
   }
 }

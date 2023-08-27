@@ -1,7 +1,6 @@
 import { MainLayout } from "@/components/MainLayout";
 import { useEffect, useState } from "react";
 import Cottages from "../components/Cottages";
-import cottageStore from "@/components/store/cottageStore";
 
 const Home = () => {
   const [page, setPage] = useState(1)
@@ -14,6 +13,9 @@ const Home = () => {
   const [error, setError] = useState(false)
   const [modal, setModal] = useState(false)
   const [status, setStatus] = useState(false)
+
+  const [descs, setDescs] = useState([]);
+  const [images, setImages] = useState([]);
 
   const forth = () => {
     if (page < 3) {
@@ -36,6 +38,18 @@ const Home = () => {
       clearTimeout(id)
     }
   }, [page])
+
+  useEffect(() => {
+    fetch('http://localhost:8000/mdescriptions')
+      .then((res) => res.json())
+      .then((json) => setDescs(json))
+  }, [])
+
+  useEffect(() => {
+    fetch('http://localhost:8000/mimages')
+      .then((res) => res.json())
+      .then((json) => setImages(json))
+  }, [])
 
   const submitForm = async (e) => {
     e.preventDefault()
@@ -112,7 +126,7 @@ const Home = () => {
             </div>
           </div>}
           <div className="slider">
-            {cottageStore.mainImgs.map((img, i) =>
+            {images.map((img, i) =>
               img.id == page &&
               (<img src={img.img} alt='' key={i} />)
             )}
@@ -121,7 +135,7 @@ const Home = () => {
         <div className="odds-container">
           <h1>Наши преимущества</h1>
           <div className='odds'>
-            {cottageStore.about.map((el, i) =>
+            {descs.map((el, i) =>
               <div className="odd" key={i}>
                 <img src={el.img} alt=''></img>
                 <div>{el.desc}</div>

@@ -1,7 +1,6 @@
 import { MainLayout } from "@/components/MainLayout"
 import cottageStore from "@/components/store/cottageStore"
 import Link from "next/link"
-import { useRouter } from "next/router"
 import { useState } from "react"
 
 
@@ -32,13 +31,13 @@ export default function Post({ cottage }) {
       <>
         <div className="block"></div>
         <div className='cottage one'>
-          {cottage.imgs.map((img, i) =>
+          {cottage.imgs.split('\n').map((img, i) =>
             i === 0 && <div key={i}><img src={`.${img}`} /></div>
           )}
           <div className='about'>
             <h2>Дом {cottage.name}</h2>
             <ul className="desc">
-              {cottage.description.map((desc, i) =>
+              {cottage.description.split('\n').map((desc, i) =>
                 <li key={i}>{desc}</li>
               )}
             </ul>
@@ -58,17 +57,17 @@ export default function Post({ cottage }) {
             </div>
             <div className='price'>
               <div><b>Прайс:</b></div>
-              {cottage.price.map((price, i) =>
+              {cottage.price.split('\n').map((price, i) =>
                 i !== 0 && <div key={i}>{price}</div>
               )}
             </div>
             <div className='check'>
-              <div><b>Заезд:</b> {cottage.check.in}</div>
-              <div><b>Выезд:</b> {cottage.check.out}</div>
+              <div><b>Заезд:</b> {cottage.checkIn}</div>
+              <div><b>Выезд:</b> {cottage.checkOut}</div>
             </div>
             <div className="add">
               <div><b>Дополнительная информация:</b></div>
-              {cottage.add.map((add, i) =>
+              {cottage.add.split('\n').map((add, i) =>
                 <div key={i}>{add}</div>
               )}
             </div>
@@ -83,14 +82,14 @@ export default function Post({ cottage }) {
             <div onClick={forth} className='forth'></div>
             <div onClick={back} className='back'></div>
             <div className="slider max-img">
-              {cottage.imgs.map((img, i) =>
+              {cottage.imgs.split('\n').map((img, i) =>
                 i == page &&
                 <img src={`.${img}`} alt='' key={i} />
               )}
             </div>
           </div>
           <div className='min-img'>
-            {cottage.imgs.map((img, i) =>
+            {cottage.imgs.split('\n').map((img, i) =>
               <div key={i} onClick={() => choosePage(i)}><img src={`.${img}`} alt='' /></div>
             )}
           </div>
@@ -105,7 +104,11 @@ export default function Post({ cottage }) {
 }
 
 Post.getInitialProps = async (ctx) => {
-  const cottage = cottageStore.cottages.find((cottage) => cottage.id == ctx.query.id)
+  const res = await fetch('http://localhost:8000/cottages')
+  const resNew = res.json();
+  console.log(resNew)
+
+  const cottage = resNew.find((cottage) => cottage.id == ctx.query.id)
 
   return {
     cottage

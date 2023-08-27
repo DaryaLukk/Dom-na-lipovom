@@ -1,21 +1,27 @@
 import Link from 'next/link'
-import React, { useState } from 'react'
-import cottageStore from './store/cottageStore'
+import React, { useEffect, useState } from 'react'
 
 const Cottages = () => {
+  const [cottages, setCottages] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/cottages')
+      .then((res) => res.json())
+      .then((json) => setCottages(json))
+  }, [])
 
   return (
     <div className='cottages'>
-      {cottageStore.cottages.map((cottage) =>
+      {cottages.map((cottage) =>
         <>
           <div className='stripe'></div>
           <div className='cottage'>
-            {cottage.imgs.map((img, i) =>
+            {cottage.imgs.split('\n').map((img, i) =>
               i === 0 && <div className='img' key={i}><img src={img} /></div>
             )}
             <div className='about'>
               <h2>Дом {cottage.name}</h2>
-              {cottage.description.map((desc, i) =>
+              {cottage.description.split('\n').map((desc, i) =>
                 i === 0 && <div className='desc' key={i}>{desc}</div>
               )}
               <div className='info'>
@@ -35,7 +41,7 @@ const Cottages = () => {
               <div className='address'>
                 <div>Адрес: {cottage.address}</div>
               </div>
-              {cottage.price.map((price, i) =>
+              {cottage.price.split('\n').map((price, i) =>
                 i === 0 && <div className='price' key={i}>Цена от {price}</div>
               )}
               <div className='links'>

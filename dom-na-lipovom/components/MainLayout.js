@@ -1,5 +1,4 @@
 import Head from "next/head";
-import '../styles/Nav.module.css'
 import { YMaps, Map, Placemark, FullscreenControl, ZoomControl } from '@pbe/react-yandex-maps';
 import { useState } from "react";
 import Link from "next/link";

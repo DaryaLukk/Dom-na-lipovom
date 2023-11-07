@@ -5,7 +5,7 @@ const Cottages = () => {
   const [cottages, setCottages] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/cottages')
+    fetch('https://dom-na-lipovom-back.onrender.com/cottages')
       .then((res) => res.json())
       .then((json) => setCottages(json))
   }, [])

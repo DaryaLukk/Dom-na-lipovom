@@ -1,5 +1,4 @@
 import { MainLayout } from "@/components/MainLayout"
-import cottageStore from "@/components/store/cottageStore"
 import Link from "next/link"
 import { useState } from "react"
 
@@ -32,7 +31,7 @@ export default function Post({ cottage }) {
         <div className="block"></div>
         <div className='cottage one'>
           {cottage.imgs.split('\n').map((img, i) =>
-            i === 0 && <div key={i}><img src={`.${img}`} /></div>
+            i === 0 && <div key={i}><img src={`..${img}`} /></div>
           )}
           <div className='about'>
             <h2>Дом {cottage.name}</h2>
@@ -84,13 +83,13 @@ export default function Post({ cottage }) {
             <div className="slider max-img">
               {cottage.imgs.split('\n').map((img, i) =>
                 i == page &&
-                <img src={`.${img}`} alt='' key={i} />
+                <img src={`..${img}`} alt='' key={i} />
               )}
             </div>
           </div>
           <div className='min-img'>
             {cottage.imgs.split('\n').map((img, i) =>
-              <div key={i} onClick={() => choosePage(i)}><img src={`.${img}`} alt='' /></div>
+              <div key={i} onClick={() => choosePage(i)}><img src={`..${img}`} alt='' /></div>
             )}
           </div>
           <div className='links'>
@@ -104,12 +103,11 @@ export default function Post({ cottage }) {
 }
 
 Post.getInitialProps = async (ctx) => {
-  const res = await fetch('http://localhost:8000/cottages')
-  const resNew = res.json();
-  console.log(resNew)
-
-  const cottage = resNew.find((cottage) => cottage.id == ctx.query.id)
-
+  const res = await fetch('https://dom-na-lipovom-back.onrender.com/cottages')
+  .then((res) => res.json())
+  
+  const cottage = res.find((cottage) => cottage.id == ctx.query.id)
+  
   return {
     cottage
   }

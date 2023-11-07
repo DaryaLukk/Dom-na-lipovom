@@ -16,7 +16,7 @@ export default function Submit_form() {
     try {
       if (name && number && date && cottage !== '' && cottage !== 'Выберите дом') {
         setModal(true)
-        const res = await fetch('http://localhost:8000', {
+        const res = await fetch('https://dom-na-lipovom-back.onrender.com', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

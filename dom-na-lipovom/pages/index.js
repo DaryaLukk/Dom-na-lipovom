@@ -40,13 +40,13 @@ const Home = () => {
   }, [page])
 
   useEffect(() => {
-    fetch('http://localhost:8000/mdescriptions')
+    fetch('https://dom-na-lipovom-back.onrender.com/mdescriptions')
       .then((res) => res.json())
       .then((json) => setDescs(json))
   }, [])
 
   useEffect(() => {
-    fetch('http://localhost:8000/mimages')
+    fetch('https://dom-na-lipovom-back.onrender.com/mimages')
       .then((res) => res.json())
       .then((json) => setImages(json))
   }, [])
@@ -56,7 +56,7 @@ const Home = () => {
     try {
       if (name && number && date && cottage !== '' && cottage !== 'Выберите дом') {
         setModal(true)
-        const res = await fetch('http://localhost:8000', {
+        const res = await fetch('https://dom-na-lipovom-back.onrender.com', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

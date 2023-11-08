@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
+import img from '../public/pictures/carousel4.jpeg';
 
 export default function Submit_form() {
   const [name, setName] = useState('')
@@ -51,7 +52,11 @@ export default function Submit_form() {
   }
 
   return (
-    <div className='container-form'>
+    <div 
+      className='container-form'
+      // style={{backgroundSize: '100vw 100vh', backgroundPosition: 'center', background: `url(${img.src}) no-repeat`}}
+    >
+      <img src={img.src} alt='' />
       <div className='cottage-form'>
         <h1>Аренда гостевых домов</h1>
         <form onSubmit={submitForm} action='/' method='POST'>
@@ -64,7 +69,6 @@ export default function Submit_form() {
             <option>Дом Темный</option>
             <option>Дом Малый</option>
             <option>Дом Прованс</option>
-            <option>Дом Красный</option>
           </select>
           <button className="form" type='submit'>Оставить заявку</button>
           <Link href='/' legacyBehavior><button className='home'>Вернуться на главную</button></Link>

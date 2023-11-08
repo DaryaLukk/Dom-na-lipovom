@@ -1,6 +1,12 @@
 import { MainLayout } from "@/components/MainLayout"
 import Link from "next/link"
 import { useState } from "react"
+import sq from '../../public/pictures/cottages/sq.png';
+import count from '../../public/pictures/cottages/count.png';
+import sleeper from '../../public/pictures/cottages/sleeper.png';
+import li from '../../public/pictures/cottages/li.png';
+import forthArrow from '../../public/pictures/arrows/forth.png';
+import backArrow from '../../public/pictures/arrows/back.png';
 
 
 export default function Post({ cottage }) {
@@ -35,22 +41,34 @@ export default function Post({ cottage }) {
           )}
           <div className='about'>
             <h2>Дом {cottage.name}</h2>
-            <ul className="desc">
+            <ul 
+              className="desc"
+              style={{listStyleImage: `url(${li.src})`}}
+            >
               {cottage.description.split('\n').map((desc, i) =>
                 <li key={i}>{desc}</li>
               )}
             </ul>
             <div className='info'>
               <div className='sq'>
-                <div className='img'></div>
+                <div 
+                  className='img'
+                  style={{background: `url(${sq.src}) no-repeat`}}
+                />
                 <div>{cottage.sq}</div>
               </div>
               <div className='count'>
-                <div className='img'></div>
+                <div 
+                  className='img'
+                  style={{background: `url(${count.src}) no-repeat`}}
+                />
                 <div>× {cottage.count}</div>
               </div>
               <div className='sleeper'>
-                <div className='img'></div>
+                <div 
+                  className='img'
+                  style={{background: `url(${sleeper.src}) no-repeat`}} 
+                />
                 <div>× {cottage.sleeper}</div>
               </div>
             </div>
@@ -78,8 +96,16 @@ export default function Post({ cottage }) {
         <div className='galery-container'>
           <h1>Галерея</h1>
           <div className='galery-img'>
-            <div onClick={forth} className='forth'></div>
-            <div onClick={back} className='back'></div>
+            <div 
+              onClick={forth} 
+              className='forth'
+              style={{background: `url(${forthArrow.src}) no-repeat`}}
+            />
+            <div 
+              onClick={back} 
+              className='back'
+              style={{background: `url(${backArrow.src}) no-repeat`}}
+            />
             <div className="slider max-img">
               {cottage.imgs.split('\n').map((img, i) =>
                 i == page &&

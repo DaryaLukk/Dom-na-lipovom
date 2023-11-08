@@ -1,5 +1,8 @@
-import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import sq from '../public/pictures/cottages/sq.png';
+import count from '../public/pictures/cottages/count.png';
+import sleeper from '../public/pictures/cottages/sleeper.png';
 
 const Cottages = () => {
   const [cottages, setCottages] = useState([]);
@@ -26,15 +29,24 @@ const Cottages = () => {
               )}
               <div className='info'>
                 <div className='sq'>
-                  <div className='img'></div>
+                  <div 
+                    className='img'
+                    style={{background: `url(${sq.src}) no-repeat`}}
+                  />
                   <div>{cottage.sq}</div>
                 </div>
                 <div className='count'>
-                  <div className='img'></div>
+                  <div 
+                    className='img'
+                    style={{background: `url(${count.src}) no-repeat`}}
+                  />
                   <div>× {cottage.count}</div>
                 </div>
                 <div className='sleeper'>
-                  <div className='img'></div>
+                  <div 
+                    className='img'
+                    style={{background: `url(${sleeper.src}) no-repeat`}} 
+                  />
                   <div>× {cottage.sleeper}</div>
                 </div>
               </div>

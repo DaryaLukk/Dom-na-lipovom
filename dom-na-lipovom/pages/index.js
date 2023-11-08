@@ -1,6 +1,8 @@
 import { MainLayout } from "@/components/MainLayout";
 import { useEffect, useState } from "react";
 import Cottages from "../components/Cottages";
+import forthArrow from '../public/pictures/arrows/forth.png';
+import backArrow from '../public/pictures/arrows/back.png';
 
 const Home = () => {
   const [page, setPage] = useState(1)
@@ -43,9 +45,6 @@ const Home = () => {
     fetch('https://dom-na-lipovom-back.onrender.com/mdescriptions')
       .then((res) => res.json())
       .then((json) => setDescs(json))
-  }, [])
-
-  useEffect(() => {
     fetch('https://dom-na-lipovom-back.onrender.com/mimages')
       .then((res) => res.json())
       .then((json) => setImages(json))
@@ -93,8 +92,16 @@ const Home = () => {
     <MainLayout>
       <div className="main-container">
         <div className='main-img'>
-          <div onClick={forth} className='forth'></div>
-          <div onClick={back} className='back'></div>
+          <div 
+            onClick={forth} 
+            className='forth'
+            style={{background: `url(${forthArrow.src}) no-repeat`}}
+          />
+          <div 
+            onClick={back} 
+            className='back'
+            style={{background: `url(${backArrow.src}) no-repeat`}}
+          />
           <div className='main-form'>
             <h1>Аренда гостевых домов</h1>
             <form onSubmit={submitForm} action='/' method='POST'>
@@ -107,7 +114,6 @@ const Home = () => {
                 <option>Дом Темный</option>
                 <option>Дом Малый</option>
                 <option>Дом Прованс</option>
-                <option>Дом Красный</option>
               </select>
               <button className="form">Оставить заявку</button>
             </form>

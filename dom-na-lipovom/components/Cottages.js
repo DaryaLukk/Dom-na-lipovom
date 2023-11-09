@@ -3,14 +3,13 @@ import React, { useEffect, useState } from 'react';
 import sq from '../public/pictures/cottages/sq.png';
 import count from '../public/pictures/cottages/count.png';
 import sleeper from '../public/pictures/cottages/sleeper.png';
+import { cottagesDB } from '@/db_fake/database';
 
 const Cottages = () => {
   const [cottages, setCottages] = useState([]);
 
   useEffect(() => {
-    fetch('https://dom-na-lipovom-back.onrender.com/cottages')
-      .then((res) => res.json())
-      .then((json) => setCottages(json))
+    setCottages(cottagesDB)
   }, [])
 
   return (
@@ -24,7 +23,7 @@ const Cottages = () => {
             )}
             <div className='about'>
               <h2>Дом {cottage.name}</h2>
-              {cottage.description.split('\n').map((desc, i) =>
+              {cottage.description && cottage.description.split('\n').map((desc, i) =>
                 i === 0 && <div className='desc' key={i}>{desc}</div>
               )}
               <div className='info'>

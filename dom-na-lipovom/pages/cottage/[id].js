@@ -7,6 +7,7 @@ import sleeper from '../../public/pictures/cottages/sleeper.png';
 import li from '../../public/pictures/cottages/li.png';
 import forthArrow from '../../public/pictures/arrows/forth.png';
 import backArrow from '../../public/pictures/arrows/back.png';
+import { cottagesDB } from "@/db_fake/database";
 
 
 export default function Post({ cottage }) {
@@ -45,7 +46,7 @@ export default function Post({ cottage }) {
               className="desc"
               style={{listStyleImage: `url(${li.src})`}}
             >
-              {cottage.description.split('\n').map((desc, i) =>
+              {cottage.description && cottage.description.split('\n').map((desc, i) =>
                 <li key={i}>{desc}</li>
               )}
             </ul>
@@ -129,8 +130,7 @@ export default function Post({ cottage }) {
 }
 
 Post.getInitialProps = async (ctx) => {
-  const res = await fetch('https://dom-na-lipovom-back.onrender.com/cottages')
-  .then((res) => res.json())
+  const res = cottagesDB
   
   const cottage = res.find((cottage) => cottage.id == ctx.query.id)
   

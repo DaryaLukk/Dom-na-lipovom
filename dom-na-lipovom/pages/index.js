@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Cottages from "../components/Cottages";
 import forthArrow from '../public/pictures/arrows/forth.png';
 import backArrow from '../public/pictures/arrows/back.png';
+import { descsDB, imagesDB } from "@/db_fake/database";
 
 const Home = () => {
   const [page, setPage] = useState(1)
@@ -42,12 +43,8 @@ const Home = () => {
   }, [page])
 
   useEffect(() => {
-    fetch('https://dom-na-lipovom-back.onrender.com/mdescriptions')
-      .then((res) => res.json())
-      .then((json) => setDescs(json))
-    fetch('https://dom-na-lipovom-back.onrender.com/mimages')
-      .then((res) => res.json())
-      .then((json) => setImages(json))
+    setDescs(descsDB)
+    setImages(imagesDB)
   }, [])
 
   const submitForm = async (e) => {

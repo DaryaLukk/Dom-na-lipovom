@@ -19,9 +19,9 @@ export function MainLayout({ children }) {
   return (
     <>
       <Head>
-        <title>Аренда гостевых домов в Тюмени | Дом на Липовом</title>
+        <title>Аренда гостевых домов в Тюмени | Дом на Липовом | Панорамные окна, современная техника, баня и терраса</title>
         <meta name='keywords' context='аренда, дом, коттедж, тюмень, баня, сауна' />
-        <meta name='description' context='Панорамные окна, кухня с современной техникой, баня и терраса. Близость к городу, аквапарку и горячим источникам.' />
+        <meta name='description' context='Аренда гостевых домов в Тюмени на Липовом озере. Панорамные окна, кухня с современной техникой, баня и терраса. Близость к городу, аквапарку и горячим источникам.' />
         <meta charSet='utf-8' />
         <link rel="shortcut icon" href="/pictures/ico.jpeg" type="image/jpeg" />
       </Head>
@@ -67,8 +67,8 @@ export function MainLayout({ children }) {
             <div className="stripe"></div>
             <Link legacyBehavior href={'/cottage/1'}><a>Дом Светлый</a></Link>
             <Link legacyBehavior href={'/cottage/2'}><a>Дом Темный</a></Link>
-            <Link legacyBehavior href={'/cottage/3'}><a>Дом Малый</a></Link>
-            <Link legacyBehavior href={'/cottage/4'}><a>Дом Прованс</a></Link>
+            <Link legacyBehavior href={'/cottage/3'}><a>Дом Прованс</a></Link>
+            <Link legacyBehavior href={'/cottage/4'}><a>Дом Зелёный</a></Link>
           </div>
         </div>
         {children}
@@ -91,13 +91,13 @@ export function MainLayout({ children }) {
         <div className='network'>
           <div>Мы в социальных сетях</div>
           <div className='links'>
-            <Link href='https://vk.com/dom_na_lipovom'>
+            <Link target="_blank" href='https://vk.com/dom_na_lipovom'>
               <div 
                 className="vk"
                 style={{background: `url(${vk.src}) no-repeat`}}
               />
             </Link>
-            <Link href='https://instagram.com/dom_na_lipovom?igshid=NTc4MTIwNjQ2YQ=='>
+            <Link target="_blank" href='https://instagram.com/dom_na_lipovom?igshid=NTc4MTIwNjQ2YQ=='>
               <div 
                 className="inst"
                 style={{background: `url(${inst.src}) no-repeat`}}

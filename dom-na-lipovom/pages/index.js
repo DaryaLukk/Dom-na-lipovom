@@ -100,7 +100,7 @@ const Home = () => {
             style={{background: `url(${backArrow.src}) no-repeat`}}
           />
           <div className='main-form'>
-            <h1>Аренда гостевых домов</h1>
+            <h1>Аренда гостевых домов в Тюмени</h1>
             <form onSubmit={submitForm} action='/' method='POST'>
               <input placeholder="Введите имя" value={name} onChange={(e) => setName(e.target.value)}></input>
               <input placeholder="Номер телефона" value={number} onChange={(e) => setNumber(e.target.value)}></input>

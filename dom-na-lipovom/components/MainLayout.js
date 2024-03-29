@@ -23,7 +23,7 @@ export function MainLayout({ children }) {
         <meta name='keywords' context='аренда, дом, коттедж, тюмень, баня, сауна' />
         <meta name='description' context='Аренда гостевых домов в Тюмени на Липовом озере. Панорамные окна, кухня с современной техникой, баня и терраса. Близость к городу, аквапарку и горячим источникам.' />
         <meta charSet='utf-8' />
-        <link rel="shortcut icon" href="/pictures/ico.jpeg" type="image/jpeg" />
+        <link rel="shortcut icon" href="/pictures/ico.ico" type="image/jpeg" />
       </Head>
       <nav>
         <div 
@@ -65,10 +65,10 @@ export function MainLayout({ children }) {
               />
             </div>
             <div className="stripe"></div>
-            <Link legacyBehavior href={'/cottage/1'}><a>Дом Светлый</a></Link>
-            <Link legacyBehavior href={'/cottage/2'}><a>Дом Темный</a></Link>
-            <Link legacyBehavior href={'/cottage/3'}><a>Дом Прованс</a></Link>
-            <Link legacyBehavior href={'/cottage/4'}><a>Дом Зелёный</a></Link>
+            <Link legacyBehavior href={'/cottage/1'}><a onClick={() => setMenu(false)}>Дом Светлый</a></Link>
+            <Link legacyBehavior href={'/cottage/2'}><a onClick={() => setMenu(false)}>Дом Темный</a></Link>
+            <Link legacyBehavior href={'/cottage/3'}><a onClick={() => setMenu(false)}>Дом Прованс</a></Link>
+            <Link legacyBehavior href={'/cottage/4'}><a onClick={() => setMenu(false)}>Дом Зелёный</a></Link>
           </div>
         </div>
         {children}

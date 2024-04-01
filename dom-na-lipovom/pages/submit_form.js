@@ -62,7 +62,7 @@ export default function Submit_form() {
         <form onSubmit={submitForm} action='/' method='POST'>
           <input placeholder="Введите имя" value={name} type='text' onChange={(e) => setName(e.target.value)}></input>
           <input placeholder="Номер телефона" value={number} type='text' onChange={(e) => setNumber(e.target.value)}></input>
-          <input placeholder="Желаемая дата" value={date} type='date' onChange={(e) => setDate(e.target.value)}></input>
+          <input value={date} type='date' onChange={(e) => setDate(e.target.value)}></input>
           <select value={cottage} onChange={(e) => setCottage(e.target.value)}>
             <option>Выберите дом</option>
             <option>Дом Светлый</option>

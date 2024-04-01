@@ -25,10 +25,10 @@ export function MainLayout({ children }) {
         <meta charSet='utf-8' />
         <link rel="shortcut icon" href="/pictures/ico.ico" type="image/jpeg" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://domnalipovom.ru" />
+        <meta property="og:url" content="https://domnalipovom.ru/" />
         <meta property="og:title" content="Аренда гостевых домов в Тюмени | Дом на Липовом" />
         <meta property="og:description" content="Посуточная аренда гостевых домов в Тюмени на Липовом озере. Панорамные окна, кухня с современной техникой, баня и терраса. Близость к городу, аквапарку и горячим источникам.'"/>
-        <meta property="og:image" content="/pictures/carousel2" />
+        <meta property="og:image" content="/pictures/carousel2.jpeg" />
       </Head>
       <nav>
         <div 

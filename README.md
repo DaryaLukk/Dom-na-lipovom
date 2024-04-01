@@ -4,6 +4,6 @@ Pet project - website for renting houses
 
 Realize on Next js
 
-<a href="https://dom-na-lipovom.onrender.com"> 
+<a href="https://domnalipovom.ru/" target="_blank" > 
   dom na lipovom
 </a>

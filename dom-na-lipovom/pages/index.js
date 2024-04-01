@@ -135,21 +135,21 @@ const Home = () => {
             )}
           </div>
         </div>
-        <div className="odds-container">
-          <h1>Наши преимущества</h1>
+        <article className="odds-container">
+          <h2>Наши преимущества</h2>
           <div className='odds'>
             {descs.map((el, i) =>
               <div className="odd" key={i}>
                 <img src={el.img} alt=''></img>
-                <div>{el.desc}</div>
+                <p>{el.desc}</p>
               </div>
             )}
           </div>
-        </div>
-        <div className="cottages-container">
-          <h1>Наши дома</h1>
+        </article>
+        <article className="cottages-container">
+          <h2>Наши дома</h2>
           <Cottages />
-        </div>
+        </article>
       </div>
     </MainLayout>
   )

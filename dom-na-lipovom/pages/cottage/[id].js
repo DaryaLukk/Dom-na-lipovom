@@ -14,7 +14,7 @@ export default function Post({ cottage }) {
   const [page, setPage] = useState(0)
 
   const forth = () => {
-    if (page < cottage.imgs.length - 1) {
+    if (page < cottage.imgs.split('\n').length - 1) {
       setPage((prev) => prev + 1)
     }
     else setPage(0)
@@ -36,12 +36,12 @@ export default function Post({ cottage }) {
     <MainLayout>
       <>
         <div className="block"></div>
-        <div className='cottage one'>
+        <article className='cottage one'>
           {cottage.imgs.split('\n').map((img, i) =>
             i === 0 && <div key={i}><img src={`..${img}`} /></div>
           )}
           <div className='about'>
-            <h2>Дом {cottage.name}</h2>
+            <h1>Дом {cottage.name}</h1>
             <ul 
               className="desc"
               style={{listStyleImage: `url(${li.src})`}}
@@ -74,28 +74,29 @@ export default function Post({ cottage }) {
               </div>
             </div>
             <div className='price'>
-              <div><b>Прайс:</b></div>
+              <p><b>Прайс:</b></p>
               {cottage.price.split('\n').map((price, i) =>
-                i !== 0 && <div key={i}>{price}</div>
+                i !== 0 && <p key={i}>{price}</p>
               )}
             </div>
             <div className='check'>
-              <div><b>Заезд:</b> {cottage.checkIn}</div>
-              <div><b>Выезд:</b> {cottage.checkOut}</div>
+              <p><b>Заезд:</b> {cottage.checkIn}</p>
+              <p><b>Выезд:</b> {cottage.checkOut}</p>
             </div>
             <div className="add">
-              <div><b>Дополнительная информация:</b></div>
+              <ul><b>Дополнительная информация:</b>
               {cottage.add.split('\n').map((add, i) =>
-                <div key={i}>{add}</div>
+                <li key={i}>{add}</li>
               )}
+              </ul>
             </div>
             <div className='address'>
-              <div><b>Адрес:</b> {cottage.address}</div>
+              <p><b>Адрес:</b> {cottage.address}</p>
             </div>
           </div>
-        </div>
-        <div className='galery-container'>
-          <h1>Галерея</h1>
+        </article>
+        <article className='galery-container'>
+          <h2>Галерея</h2>
           <div className='galery-img'>
             <div 
               onClick={forth} 
@@ -123,7 +124,7 @@ export default function Post({ cottage }) {
             <Link href='/submit_form'><button className='form'>Оставить заявку</button></Link>
             <Link href='/'><button className='home'>Вернуться на главную</button></Link>
           </div>
-        </div>
+        </article>
       </>
     </MainLayout>
   )

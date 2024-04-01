@@ -17,14 +17,14 @@ const Cottages = () => {
       {cottages.map((cottage) =>
         <>
           <div className='stripe'></div>
-          <div className='cottage'>
+          <section className='cottage'>
             {cottage.imgs.split('\n').map((img, i) =>
               i === 0 && <div className='img' key={i}><img src={img} /></div>
             )}
             <div className='about'>
-              <h2>Дом {cottage.name}</h2>
+              <h3>Дом {cottage.name}</h3>
               {cottage.description && cottage.description.split('\n').map((desc, i) =>
-                i === 0 && <div className='desc' key={i}>{desc}</div>
+                i === 0 && <p className='desc' key={i}>{desc}</p>
               )}
               <div className='info'>
                 <div className='sq'>
@@ -50,17 +50,17 @@ const Cottages = () => {
                 </div>
               </div>
               <div className='address'>
-                <div>Адрес: {cottage.address}</div>
+                <p>Адрес: {cottage.address}</p>
               </div>
               {cottage.price.split('\n').map((price, i) =>
-                i === 0 && <div className='price' key={i}>Цена от {price}</div>
+                i === 0 && <p className='price' key={i}>Цена от {price}</p>
               )}
               <div className='links'>
                 <Link href='/submit_form'><button className='form'>Оставить заявку</button></Link>
                 <Link className='next-link' href={`/cottage/[id]`} as={`/cottage/${cottage.id}`}><button className='cottage'>Подробнее о доме</button></Link>
               </div>
             </div>
-          </div>
+          </section>
         </>
       )}
     </div>

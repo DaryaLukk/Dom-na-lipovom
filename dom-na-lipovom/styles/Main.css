@@ -196,6 +196,20 @@ footer .contacts {
   }
 
 /* odds */
+.odds-container,
+.cottages-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.odds-container h2,
+.cottages-container h2 {
+  text-align: center;
+  font-size: 2em;
+}
+
 .odds {
   width: 1065px;
   background-color: rgb(241,241,229);
@@ -236,12 +250,6 @@ footer .contacts {
   opacity: 0.8;
 }
 
-.cottages-container h1,
-.odds-container h1 {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
 .cottage {
   display:flex;
   flex-direction: row;
@@ -265,7 +273,8 @@ footer .contacts {
   width: 450px;
 }
 
-.about h2 {
+.about h3 {
+  font-size: 1.5em;
   margin-bottom: 20px;
 }
 
@@ -350,14 +359,14 @@ footer .contacts {
   gap: 10px;
 }
 
-.one .add {
-  font-size: 15px;
-}
-
 /* gallery */
 .galery-container {
   gap: 50px;
   margin-top: 50px;
+}
+
+.galery-container h2 {
+  font-size: 2em;
 }
 
 .max-img img {

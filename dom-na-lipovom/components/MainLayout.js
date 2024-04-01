@@ -19,11 +19,16 @@ export function MainLayout({ children }) {
   return (
     <>
       <Head>
-        <title>Аренда гостевых домов в Тюмени | Дом на Липовом | Панорамные окна, современная техника, баня и терраса</title>
-        <meta name='keywords' context='аренда, дом, коттедж, тюмень, баня, сауна' />
-        <meta name='description' context='Аренда гостевых домов в Тюмени на Липовом озере. Панорамные окна, кухня с современной техникой, баня и терраса. Близость к городу, аквапарку и горячим источникам.' />
+        <title>Аренда гостевых домов в Тюмени | Дом на Липовом</title>
+        <meta name='keywords' context='аренда, дом, коттедж, тюмень, посуточно, баня, сауна' />
+        <meta name='description' context='Посуточная аренда гостевых домов в Тюмени на Липовом озере. Панорамные окна, кухня с современной техникой, баня и терраса. Близость к городу, аквапарку и горячим источникам.' />
         <meta charSet='utf-8' />
         <link rel="shortcut icon" href="/pictures/ico.ico" type="image/jpeg" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://domnalipovom.ru" />
+        <meta property="og:title" content="Аренда гостевых домов в Тюмени | Дом на Липовом" />
+        <meta property="og:description" content="Посуточная аренда гостевых домов в Тюмени на Липовом озере. Панорамные окна, кухня с современной техникой, баня и терраса. Близость к городу, аквапарку и горячим источникам.'"/>
+        <meta property="og:image" content="/pictures/carousel2" />
       </Head>
       <nav>
         <div 

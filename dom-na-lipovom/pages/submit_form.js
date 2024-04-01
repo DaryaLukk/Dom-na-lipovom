@@ -67,8 +67,8 @@ export default function Submit_form() {
             <option>Выберите дом</option>
             <option>Дом Светлый</option>
             <option>Дом Темный</option>
-            <option>Дом Малый</option>
             <option>Дом Прованс</option>
+            <option>Дом Зелёный</option>
           </select>
           <button className="form" type='submit'>Оставить заявку</button>
           <Link href='/' legacyBehavior><button className='home'>Вернуться на главную</button></Link>

@@ -56,7 +56,7 @@ export function MainLayout({ children }) {
               style={{background: hoverContact ? `url(${contactHover.src}) no-repeat` : `url(${contact.src}) no-repeat`}}
             />
           </Link>
-          <Link href='tel:+79995489888' legacyBehavior ><a className='phone'>{`8 (999) 548-98-88`}</a></Link>
+          <Link href='tel:+79995489888' legacyBehavior ><a className='phone'>{`8 (912) 078-88-58`}</a></Link>
         </div>
       </nav>
       <main>
@@ -82,13 +82,13 @@ export function MainLayout({ children }) {
       <footer>
         <div className="data">
           <div>Контакты:</div>
-          <div>Тюмень, улица Николая Егорова 19</div>
-          <div>8 (999) 548-98-88</div>
+          <div>Тюмень, улица Николая Егорова</div>
+          <div>8 (912) 078-88-58</div>
         </div>
         <div className='map'>
           <YMaps>
-            <Map defaultState={{ center: [57.230119, 65.593868], zoom: 17 }} width={'420px'} height={'280px'}>
-              <Placemark geometry={[57.230119, 65.593868]} />
+            <Map defaultState={{ center: [57.229583, 65.5933383], zoom: 17 }} width={'420px'} height={'280px'}>
+              <Placemark geometry={[57.229583, 65.5933383]} />
               <FullscreenControl options={{ float: 'left' }} />
               <ZoomControl options={{ float: 'left' }} />
             </Map>

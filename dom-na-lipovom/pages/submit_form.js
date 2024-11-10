@@ -54,7 +54,6 @@ export default function Submit_form() {
   return (
     <div 
       className='container-form'
-      // style={{backgroundSize: '100vw 100vh', backgroundPosition: 'center', background: `url(${img.src}) no-repeat`}}
     >
       <img src={img.src} alt='' />
       <div className='cottage-form'>

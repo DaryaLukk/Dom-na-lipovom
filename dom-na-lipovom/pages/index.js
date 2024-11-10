@@ -35,13 +35,6 @@ const Home = () => {
     }
   }
 
-  // useEffect(() => {
-  //   const id = setTimeout(forth, 5000)
-  //   return () => {
-  //     clearTimeout(id)
-  //   }
-  // }, [page])
-
   useEffect(() => {
     setDescs(descsDB)
     setImages(imagesDB)

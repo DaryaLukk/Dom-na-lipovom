@@ -109,7 +109,6 @@ const Home = () => {
                 <option>Выберите дом</option>
                 <option>Дом Светлый</option>
                 <option>Дом Темный</option>
-                <option>Дом Зелёный</option>
                 <option>Дом Прованс</option>
               </select>
               <button className="form">Оставить заявку</button>

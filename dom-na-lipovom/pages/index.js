@@ -1,6 +1,8 @@
 import { MainLayout } from "@/components/MainLayout";
 import { useEffect, useState } from "react";
 import Cottages from "../components/Cottages";
+import Blog from "../components/Blog";
+import Link from "next/link";
 import forthArrow from '../public/pictures/arrows/forth.png';
 import backArrow from '../public/pictures/arrows/back.png';
 import { descsDB, imagesDB } from "@/db_fake/database";
@@ -92,8 +94,11 @@ const Home = () => {
             className='back'
             style={{background: `url(${backArrow.src}) no-repeat`}}
           />
+          <div className='main-title'>
+            <h2>Дом на Липовом</h2>
+            <h1>- посуточная аренда гостевых домов в Тюмени</h1>
+          </div>
           <div className='main-form'>
-            <h1>Аренда гостевых домов в Тюмени</h1>
             <form onSubmit={submitForm} action='/' method='POST'>
               <input placeholder="Введите имя" value={name} onChange={(e) => setName(e.target.value)}></input>
               <input placeholder="Номер телефона" value={number} onChange={(e) => setNumber(e.target.value)}></input>
@@ -141,6 +146,10 @@ const Home = () => {
         <article className="cottages-container">
           <h2>Наши дома</h2>
           <Cottages />
+        </article>
+        <article className="blog-container">
+          <Link legacyBehavior href={'/blog'} ><h2>Наш блог</h2></Link>
+          <Blog />
         </article>
       </div>
     </MainLayout>

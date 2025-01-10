@@ -98,6 +98,7 @@ export function MainLayout({ children }) {
             <Link legacyBehavior href={'/cottage/1'}><a onClick={() => setMenu(false)}>Дом Светлый</a></Link>
             <Link legacyBehavior href={'/cottage/2'}><a onClick={() => setMenu(false)}>Дом Темный</a></Link>
             <Link legacyBehavior href={'/cottage/3'}><a onClick={() => setMenu(false)}>Дом Прованс</a></Link>
+            <Link legacyBehavior href={'/blog'}><a onClick={() => setMenu(false)}>Блог</a></Link>
           </div>
         </div>
         {children}

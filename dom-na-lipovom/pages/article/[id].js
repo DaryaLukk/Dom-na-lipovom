@@ -41,6 +41,11 @@ export default function Post({ article }) {
       </Head>
       <div className="article-container">
         <article className="main-article">
+        <noscript>
+          <div>
+            <img src="https://mc.yandex.ru/watch/99344852" style={{ position: 'absolute', left: '-9999px' }} alt="" />
+          </div>
+        </noscript>
           <div className="comeback-links">
             <ComeBack />
             <ComeBack path={'/blog'} title={'наш блог'} />

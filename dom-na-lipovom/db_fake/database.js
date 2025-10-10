@@ -46,7 +46,7 @@ export const cottagesDB = [
     id: 3,
     name: 'Прованс',
     sq: '300 м²',
-    count: 50,
+    count: 40,
     sleeper: 32,
     address: 'Тюмень, улица Николая Егорова',
     imgs: '/pictures/violet/1.jpeg\n/pictures/violet/2.jpeg\n/pictures/violet/3.jpeg\n/pictures/violet/4.jpeg\n/pictures/violet/5.jpeg\n/pictures/violet/6.jpeg\n/pictures/violet/7.jpeg\n/pictures/violet/8.jpeg\n/pictures/violet/9.jpeg\n/pictures/violet/10.jpeg\n/pictures/violet/11.jpeg\n/pictures/violet/12.jpeg\n/pictures/violet/13.jpeg\n/pictures/violet/14.jpeg',

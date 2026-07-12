@@ -1,5 +1,6 @@
 import { MainLayout } from "@/components/MainLayout"
 import Link from "next/link"
+import { useRouter } from 'next/router';
 import { useState } from "react"
 import sq from '../../public/pictures/cottages/sq.png';
 import count from '../../public/pictures/cottages/count.png';
@@ -11,6 +12,7 @@ import { cottagesDB } from "@/db_fake/database";
 
 
 export default function Post({ cottage }) {
+  const router = useRouter();
   const [page, setPage] = useState(0)
 
   const forth = () => {
@@ -88,6 +90,9 @@ export default function Post({ cottage }) {
               {cottage.add.split('\n').map((add, i) =>
                 <li key={i}>{add}</li>
               )}
+              <br />
+              <li className="add-link" onClick={() => router.push(`/article/0`)}>Подробнее об услуге кейтеринга</li>
+              <li className="add-link" onClick={() => router.push(`/article/2`)}>Про наши преимущества и условия аренды</li>
               </ul>
             </div>
             <div className='address'>

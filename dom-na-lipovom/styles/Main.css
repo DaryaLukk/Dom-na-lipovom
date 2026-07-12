@@ -254,6 +254,8 @@ footer .contacts {
 .blog {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
   margin: 50px 0;
 }
@@ -264,6 +266,7 @@ footer .contacts {
   border: 1px solid #38424c;
   width: 500px;
   height: 320px;
+  cursor: pointer;
 }
 
 .blog .article img {
@@ -495,6 +498,16 @@ footer .contacts {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.one .add-link {
+  cursor: pointer;
+  color: #7c541f;
+}
+
+.one .add-link:hover {
+  color: #cbc276;
+  transition: 0.5s;
 }
 
 /* gallery */

@@ -75,7 +75,10 @@ export function MainLayout({ children }) {
               style={{background: hoverContact ? `url(${contactHover.src}) no-repeat` : `url(${contact.src}) no-repeat`}}
             />
           </Link>
-          <Link href='tel:+79995489888' legacyBehavior ><a className='phone'>{`8 (912) 078-88-58`}</a></Link>
+          <div className='flex-column' >
+            <Link href='tel:+79995489888' legacyBehavior ><a className='phone'>{`8 (912) 078-88-58`}</a></Link>
+            <Link href='tel:+79526827999' legacyBehavior ><a className='phone'>{`8 (952) 682-79-99`}</a></Link>
+          </div>
         </div>
       </nav>
       <main>
@@ -108,6 +111,7 @@ export function MainLayout({ children }) {
           <div>Контакты:</div>
           <div>Тюмень, улица Николая Егорова</div>
           <div>8 (912) 078-88-58</div>
+          <div>8 (952) 682-79-99</div>
         </div>
         <div className='map'>
           <YMaps>

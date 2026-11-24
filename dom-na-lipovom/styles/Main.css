@@ -36,6 +36,13 @@ a:hover {
   text-decoration: none;
 }
 
+/* commons */
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 /* nav */
 nav {
   height: 80px;
@@ -68,6 +75,7 @@ nav .contacts {
   text-decoration: none;
   color: white;
   transition: 0.5s;
+  font-size: 19px;
 }
 
 .contacts .phone:hover {
